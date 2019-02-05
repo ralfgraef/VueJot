@@ -1,7 +1,18 @@
 const express = require('express');
 const exphbs  = require('express-handlebars');
+const mongoose = require('mongoose');
 
 const app = express();
+
+//Connect to mongoose
+mongoose.connect('mongodb://ralleadmin:jumbotron1968@ds223015.mlab.com:23015/ralfdb', {
+  useNewUrlParser: true
+})
+.then(() => {
+  console.log('DB succesfully connected...')
+})
+.catch(err => console.log('Fehler: ', err));
+
 
 // Handlebars Middleware
 app.engine('handlebars', exphbs({
