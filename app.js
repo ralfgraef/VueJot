@@ -15,7 +15,7 @@ mongoose.connect('mongodb://ralleadmin:jumbotron1968@ds223015.mlab.com:23015/ral
 .catch(err => console.log('Fehler: ', err));
 
 // Load Idea Model
-require('./models/Idea');
+require('./models/Ideas');
 const Idea = mongoose.model('ideas');
 
 
@@ -27,7 +27,7 @@ app.set('view engine', 'handlebars');
 
 // Index Route
 app.get('/', (req, res) => {
-  const title = 'Welcome Ralfi!';
+  const title = 'Welcome!';
   res.render('index', {
     title: title
   });
@@ -37,6 +37,11 @@ app.get('/', (req, res) => {
 // About Route
 app.get('/about', (req, res) => {
   res.render('about');
+});
+
+// Add Idea Form
+app.get('/ideas/add', (req, res) => {
+  res.render('ideas/add');
 });
 
 const port = 5000;
