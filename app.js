@@ -2,6 +2,7 @@ const express = require('express');
 const exphbs  = require('express-handlebars');
 const mongoose = require('mongoose');
 
+
 const app = express();
 
 //Connect to mongoose
@@ -12,6 +13,10 @@ mongoose.connect('mongodb://ralleadmin:jumbotron1968@ds223015.mlab.com:23015/ral
   console.log('DB succesfully connected...')
 })
 .catch(err => console.log('Fehler: ', err));
+
+// Load Idea Model
+require('./models/Idea');
+const Idea = mongoose.model('ideas');
 
 
 // Handlebars Middleware
