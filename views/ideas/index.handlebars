@@ -1,8 +1,9 @@
 {{#each ideas}}
-  <div class="card card-body mb-2">
+  <div class="card card-body mb-1">
     <h4>{{title}}</h4>
     <p>{{details}}</p>
   </div>
+  <a class="btn btn-dark mb-4" href="/ideas/edit/{{id}}" role="button">Edit</a>
 {{else}}
   <p>No videos listed in db</p>
 {{/each}}
